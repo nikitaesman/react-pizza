@@ -1,0 +1,56 @@
+@import "src/styles/variables";
+.box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 7px 0;
+  cursor: default;
+  p {
+    font-size: 14px;
+    font-weight: 700;
+    span {
+      color: $orange;
+      border-bottom: 1px dashed $orange;
+      line-height: 20px;
+      margin-left: 8px;
+    }
+  }
+  &:hover .selectSort{
+    height: inherit;
+    opacity: 1;
+    padding: 13px 0;
+  }
+
+  .selectSort {
+    top: 30px;
+    right: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: min-content;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding: 0;
+    z-index: 10;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.09);
+    border-radius: 10px;
+    transition: $transitionAll;
+    .optionSort {
+      display: block;
+      width: 132px;
+      text-align: center;
+      background: #fff;
+      padding: 10px 0;
+      transition: $transitionAll;
+      cursor: pointer;
+      &:hover {
+        background: rgba(254, 95, 30, 0.05);
+        font-weight: 700;
+        color: $orange;
+      }
+    }
+
+  }
+}

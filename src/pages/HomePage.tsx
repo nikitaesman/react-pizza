@@ -6,23 +6,28 @@ import { IPizza } from '../types';
 import cs from '../styles/MainPage.module.scss'
 import Pagination from "../components/Pagination/Pagination";
 import ProductListLoader from '../components/ProductListLoader/ProductListLoader';
-import Grouping from '../components/Grouping/Grouping';
+import Categories from '../components/Categories/Categories';
+import Sorting from "../components/Sorting/Sorting";
 
 const HomePage: FC = () => {
     const {fetchUsers} = useActions()
     const {products,loading,error} = useTypedSelector(state => state.products)
-    const [groupBy, setGroupBy] = useState<number | string>("")
+    const [category, setCategory] = useState<number | string>("")
+    const [sortBy, setSortBy] = useState<string>("rating")
     const [page, setPage] = useState<number>(1)
     const limit = 4
 
     useEffect(() => {
-        fetchUsers(page, limit, groupBy)
-    }, [page, groupBy])
+        fetchUsers(page, limit, category, sortBy)
+    }, [page, category, sortBy])
 
 
     return (
         <section>
-            <Grouping groupBy={groupBy} setGroupBy={setGroupBy}/>
+            <div className={cs.outputSettings}>
+                <Categories category={category} setCategory={setCategory} setPage={setPage}/>
+                <Sorting sortBy={sortBy} setSortBy={setSortBy}/>
+            </div>
             <h2 className={cs.title}>
                 Все пиццы
             </h2>

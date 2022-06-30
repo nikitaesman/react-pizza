@@ -55,6 +55,12 @@ const Pagination: FC<PaginationProps> = ({pageNum, limit, setPage}) => {
         )
     }
 
+    if (pagesCount < 2) {
+        return (
+            <div/>
+        )
+    }
+
     return (
         <div className={cs.box}>
             <div className={cs.item} onClick={e => prevNextChange("minus")}>
