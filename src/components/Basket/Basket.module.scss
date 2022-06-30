@@ -1,0 +1,33 @@
+@import './src/styles/variables.scss';
+
+.basket {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $orange;
+  color: #fff;
+  padding: 13px 23px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: $transitionAll;
+  &:hover {
+    background: #e8551d;
+  }
+  .dash {
+    display: block;
+    width: 1px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.25);
+    margin: 0 13px;
+  }
+  .count {
+    display: flex;
+    align-items: center;
+    img {
+      display: block;
+      margin-right: 5px;
+    }
+  };
+}

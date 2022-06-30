@@ -1,0 +1,147 @@
+@import "variables";
+
+.Basket {
+  display: flex;
+  flex-direction: column;
+  width: 820px;
+  margin: 0 auto;
+  padding-top: 50px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+
+    .titleBox {
+      display: flex;
+      align-items: center;
+      img {
+        display: block;
+        width: 30px;
+        height: 30px;
+      }
+      h2 {
+        display: block;
+        font-size: 32px;
+        margin-left: 18px;
+        margin-top: 4px;
+      }
+    }
+    .clearButton {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 10px 0;
+      transition: $transitionAll;
+      &:hover p {
+        color: black;
+      }
+      &:hover img {
+        filter: sepia(700%);
+        filter: invert(1);
+      }
+      img {
+        display: block;
+        transition: $transitionAll;
+      }
+      p {
+        display: block;
+        margin-top: 4px;
+        margin-left: 5px;
+        font-size: 16px;
+        color: #B6B6B6;
+        transition: $transitionAll;
+      }
+    }
+  }
+
+  .itemsList {
+    display: flex;
+    flex-direction: column;
+    min-height: 430px;
+  }
+
+  .result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+
+    .count {
+      display: flex;
+      font-size: 22px;
+      span {
+        font-weight: 700;
+        margin-left: 7px;
+      }
+    }
+    .sum {
+      display: flex;
+      font-size: 22px;
+      span {
+        font-weight: 700;
+        margin-left: 7px;
+        color: $orange;
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+
+    .backButton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 210px;
+      font-size: 16px;
+      color:  #CACACA;
+      border: 1px solid #CACACA;
+      border-radius: 30px;
+      background: #fff;
+      padding: 16px 0;
+      cursor: pointer;
+      transition: $transitionAll;
+      &:hover {
+        background: black;
+        color: #fff;
+      }
+      .arrow {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-left: 2px solid #CACACA;
+        border-bottom: 2px solid #CACACA;
+        transform: rotate(45deg);
+        margin-top: -2px;
+        margin-right: 6px;
+        transition: $transitionAll;
+      }
+      &:hover .arrow {
+        border-left: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+      }
+    }
+
+    .payment {
+      display: flex;
+      width: 210px;
+      justify-content: center;
+      align-items: center;
+      background: $orange;
+      color: #fff;
+      padding: 16px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: $transitionAll;
+      &:hover {
+        background: #e8551d;
+      }
+    }
+  }
+}

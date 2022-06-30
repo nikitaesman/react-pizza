@@ -1,0 +1,27 @@
+@import "src/styles/variables";
+.box {
+  display: flex;
+  width: min-content;
+
+  .item {
+    display: block;
+    padding: 14px 16px;
+    margin-right: 9px;
+    background: #F9F9F9;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    transition: $transitionAll;
+    cursor: pointer;
+    &:hover {
+      background: #282828;
+      color: #fff;
+    }
+  }
+  .activeItem {
+    background: #282828;
+    color: #fff;
+  }
+}

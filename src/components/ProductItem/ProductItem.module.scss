@@ -1,0 +1,124 @@
+@import 'src/styles/variables.scss';
+
+.product {
+  display: flex;
+  width: 280px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 65px;
+
+  .image {
+    display: block;
+    width: 260px;
+    height: 260px;
+  }
+
+  .title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #000000;
+    text-align: center;
+    margin-top: 11px;
+    line-height: 24px;
+    margin-bottom: 22px;
+  }
+
+  .customize {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: $gray-line;
+    padding: 6px;
+    border-radius: 10px;
+  }
+
+  .wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 17px;
+
+    .price {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.015em;
+      color: #000000;
+    }
+    .addBasket {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 160px;
+      height: 45px;
+      background: transparent;
+      border: 1px solid $orange;
+      border-radius: 30px;
+      transition: $transitionAll;
+      cursor: pointer;
+      &:hover {
+        background: $orange;
+        color: #fff;
+      }
+      .figureBox {
+        position: relative;
+        top: -1px;
+        display: flex;
+        width: 12px;
+        height: 12px;
+        margin-right: 7px;
+        .figureLine {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          display: block;
+          width: 12px;
+          height: 2px;
+          background: $orange;
+          transition: $transitionAll;
+        }
+        .figureLine:nth-child(2) {
+          width: 2px;
+          height: 12px;
+        }
+      }
+      p {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        color: $orange;
+        transition: $transitionAll;
+      }
+
+      &:hover .figureBox .figureLine{
+        background: #fff;
+      }
+      &:hover p{
+        color: #fff;
+      }
+
+      .countAdded {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 22px;
+        height: 22px;
+        padding-top: 1px;
+        padding-right: 1px;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 700;
+        background: $orange;
+        border-radius: 50%;
+        margin-left: 8px;
+        transition: $transitionAll;
+      }
+      &:hover .countAdded{
+        color: $orange;
+        background: #fff;
+      }
+    }
+  }
+}

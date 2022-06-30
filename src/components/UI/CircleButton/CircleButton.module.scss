@@ -1,0 +1,74 @@
+@import "src/styles/variables";
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: $transitionAll;
+  cursor: pointer;
+  .figureBox {
+    display: block;
+    width: 10px;
+    height: 10px;
+    position: relative;
+    .figureLine {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      display: block;
+      width: 10px;
+      height: 2px;
+      transition: $transitionAll;
+    }
+  }
+}
+
+.button_increment {
+  .figureLine:nth-child(2) {
+    width: 2px;
+    height: 10px;
+  }
+}
+
+.button_delete {
+  .figureBox {
+    margin-left: -10.5px;
+    margin-top: -2px;
+  }
+  .figureLine:nth-child(1) {
+    transform: rotate(45deg);
+  }
+  .figureLine:nth-child(2) {
+    transform: rotate(-45deg);
+  }
+}
+
+.button_orange {
+  border: 1px solid $orange;
+  &:hover {
+    background: $orange;
+  }
+  &:hover .figureLine{
+    background: #fff;
+  }
+  .figureLine{
+    background: $orange;
+  }
+}
+
+.button_grey {
+  border: 1px solid #D7D7D7;
+  &:hover {
+    background: #000;
+  }
+  &:hover .figureLine{
+    background: #fff;
+  }
+  .figureLine{
+    background: #D7D7D7;
+  }
+}

@@ -1,0 +1,57 @@
+@import 'src/styles/variables.scss';
+
+
+
+.select{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  &:nth-child(2) {
+    margin-top: 5px;
+  }
+  .option {
+    display: block;
+    width: 132px;
+    text-align: center;
+    color: #CBCBCB;
+    background: transparent;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    border-radius: 5px;
+    padding: 12px;
+    font-weight: 700;
+    transition: $transitionAll;
+    cursor: pointer;
+    &:hover {
+      background: #FFFFFF4D;
+      color: #2C2C2C;
+    }
+    z-index: 1;
+  }
+  .option_active {
+    color: #2C2C2C;
+  }
+  .visual {
+    position: absolute;
+    top: 0;
+    display: block;
+    width: 132px;
+    height: 41px;
+    background: #fff;
+    border-radius: 5px;
+    transition: $transitionAll;
+  }
+  .visual_small {
+    width: 89px;
+  }
+  .visual_left {
+    left: 0;
+  }
+  .visual_right {
+    left: 100%;
+    transform: translate(-100%);
+  }
+  .visual_center {
+    left: 89px;
+  }
+}

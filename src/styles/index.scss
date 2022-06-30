@@ -1,0 +1,31 @@
+//файл шрифтов
+@import './_fonts.scss';
+
+//подключение переменных
+@import "./_variables";
+
+//файл сброса стилей
+@import './_normalize.scss';
+
+
+
+
+html {
+  background: $background;
+  padding: 45px;
+}
+
+body {
+  display: block;
+  width: $container-width;
+  margin: 0 auto;
+
+  font-family: 'Proxima Nova', sans-serif;
+  font-size: 14px;
+  background: #fff;
+  color: $black;
+  line-height: 17px;
+  padding: 52px 67px;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.03);
+  border-radius: 10px;
+}

@@ -1,0 +1,36 @@
+@import "src/styles/variables.scss";
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 35px;
+  border-bottom: 1px solid #F7F7F7;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: $black;
+  cursor: pointer;
+
+  img {
+    display: block;
+    width: 38px;
+    height: 38px;
+  }
+
+  .logoWrapper {
+    margin-left: 17px;
+    .logoTitle {
+      text-transform: uppercase;
+      font-size: 24px;
+      font-weight: 800;
+    }
+    .slogan {
+      font-size: 16px;
+      color: #7B7B7B;
+    }
+  }
+}
+

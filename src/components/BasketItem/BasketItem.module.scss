@@ -1,0 +1,64 @@
+@import "src/styles/variables";
+
+.box:last-child {
+  border-bottom: 1px solid $gray-line;
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  border-top: 1px solid $gray-line;
+
+  .info {
+    display: flex;
+    align-items: center;
+    .image {
+      display: block;
+      width: 80px;
+      height: 80px;
+    }
+    .infoTexts {
+      display: block;
+      margin-left: 15px;
+      .title {
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 27px;
+      }
+      .settings {
+        font-size: 18px;
+        line-height: 22px;
+        color: #8D8D8D;
+        margin-top: 1px;
+      }
+    }
+  }
+
+
+
+  .clarifying {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 340px;
+    .counter {
+      display: flex;
+      .count {
+        display: block;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 27px;
+        margin: 3px 12px 0;
+      }
+    }
+
+    .price {
+      display: block;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 27px;
+    }
+  }
+}
