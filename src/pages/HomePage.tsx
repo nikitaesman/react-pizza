@@ -9,10 +9,11 @@ import ProductListLoader from '../components/ProductListLoader/ProductListLoader
 import Categories from '../components/Categories/Categories';
 import Sorting from "../components/Sorting/Sorting";
 import Search from "../components/Search/Search";
+import NotFoundedProduct from "../components/NotFoundedProduct/NotFoundedProduct";
 
 const HomePage: FC = () => {
     const {fetchUsers} = useActions()
-    const {products,loading,error} = useTypedSelector(state => state.products)
+    const {products,loading} = useTypedSelector(state => state.products)
     const [search, setSearch] = useState<string>("")
     const [category, setCategory] = useState<number | string>("")
     const [sortBy, setSortBy] = useState<string>("rating")
@@ -39,9 +40,12 @@ const HomePage: FC = () => {
                     ?
                     <ProductListLoader/>
                     :
-                    products.map((product: IPizza) =>
-                        <Product key={product.id} pizza={product}/>
-                    )
+                    products.length === 0
+                        ? <NotFoundedProduct searchValue={search}/>
+                        :
+                        products.map((product: IPizza) =>
+                            <Product key={product.id} pizza={product}/>
+                        )
                     }
             </div>
             <Pagination setPage={setPage} pageNum={page} limit={limit}/>

@@ -5,10 +5,23 @@
   top: -90px;
   left: 50%;
   transform: translate(-50%);
+
+  .icon {
+    top: 11px;
+    left: 8px;
+    position: absolute;
+    display: block;
+    width: 21px;
+    circle, line {
+      stroke: #949494;
+    }
+    pointer-events: none;
+  }
+
   .input {
     display: block;
     width: 300px;
-    padding: 10px 20px 10px 15px;
+    padding: 10px 30px 10px 32px;
     border: 2px solid #CBCBCB;
     border-radius: 8px;
     font-family: 'Proxima Nova', Roboto, system-ui, Tahoma, sans-serif;
