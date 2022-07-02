@@ -1,0 +1,56 @@
+@import "src/styles/variables";
+
+.box {
+  position: absolute;
+  top: -90px;
+  left: 50%;
+  transform: translate(-50%);
+  .input {
+    display: block;
+    width: 300px;
+    padding: 10px 20px 10px 15px;
+    border: 2px solid #CBCBCB;
+    border-radius: 8px;
+    font-family: 'Proxima Nova', Roboto, system-ui, Tahoma, sans-serif;
+    font-size: 16px;
+    transition: $transitionAll;
+    &:focus {
+      border: 2px solid $orange;
+    }
+  }
+
+  .clearBtn {
+    position: absolute;
+    top: 7px;
+    right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    z-index: 10;
+    &:hover .figureLine {
+      background: $orange;
+    }
+    .figureLine {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -10.5px;
+      margin-top: -2px;
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: #7B7B7B;
+      transition: $transitionAll;
+      &:nth-child(1) {
+        transform: rotate(45deg);
+      }
+      &:nth-child(2) {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+

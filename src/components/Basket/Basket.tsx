@@ -2,11 +2,17 @@ import React from 'react';
 import cs from './Basket.module.scss'
 import basketImage from '../../images/basket.png'
 import {useTypedSelector} from "../../hooks/useTypedSelector";
-import {useNavigate} from 'react-router-dom'
+import {useLocation, useNavigate} from 'react-router-dom'
 
 const Basket = () => {
     const {totalPrice, totalCount} = useTypedSelector(state => state.basket)
     const navigate = useNavigate()
+    let location = useLocation();
+
+    if (location.pathname === "/basket") {
+        return <></>
+    }
+
     return (
         <div className={cs.basket} onClick={e => navigate('/basket')}>
             <div className={cs.price}>

@@ -6,6 +6,7 @@ import {useNavigate} from "react-router-dom";
 
 const Navigation = () => {
     const navigate = useNavigate()
+
     return (
         <header>
             <div className={cs.logo} onClick={e => navigate('/home')}>

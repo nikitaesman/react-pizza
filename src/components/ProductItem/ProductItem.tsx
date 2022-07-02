@@ -4,6 +4,7 @@ import {BasketActionTypes, IBasketItem, IOption, IPizza, ISettings} from "../../
 import HorizontalSelect from "../UI/HorizontalSelect/HorizontalSelect";
 import {useDispatch} from "react-redux";
 import { useTypedSelector } from '../../hooks/useTypedSelector';
+import ProductLoader from "../ProductLoader";
 
 interface ProductProps {
     pizza: IPizza
@@ -12,6 +13,7 @@ interface ProductProps {
 const ProductItem: FC<ProductProps> = ({pizza}) => {
     const dispatch = useDispatch()
     const {products} = useTypedSelector(state => state.basket)
+    const [isLoading, setIsLoading] = useState<boolean>(true)
     const [settings, setSettings] = useState<ISettings>({
         thick: 0, size: 25
     })
@@ -60,8 +62,10 @@ const ProductItem: FC<ProductProps> = ({pizza}) => {
     }
 
     return (
-        <div className={cs.product}>
-            <img src={`${pizza.imageUrl}`} className={cs.image}/>
+        <>
+        {isLoading ? <ProductLoader/>: ""}
+        <div className={isLoading ? cs.loading : cs.product}>
+            <img src={`${pizza.imageUrl}`} onLoad={e => setIsLoading(false)}   className={cs.image}/>
             <h3 className={cs.title}>
                 {pizza.title}
             </h3>
@@ -89,6 +93,7 @@ const ProductItem: FC<ProductProps> = ({pizza}) => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

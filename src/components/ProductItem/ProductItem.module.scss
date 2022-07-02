@@ -1,12 +1,15 @@
 @import 'src/styles/variables.scss';
 
+.loading {
+  display: none;
+}
+
 .product {
   display: flex;
   width: 280px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 65px;
 
   .image {
     display: block;

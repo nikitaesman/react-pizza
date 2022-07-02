@@ -3,6 +3,7 @@ import cs from './EmptyBasket.module.scss'
 import smileImage from '../../images/smile.png'
 import personWithImage from '../../images/people-with-basket.png'
 import {useNavigate} from 'react-router-dom'
+import MyImage from "../UI/MyImage";
 
 const EmptyBasket = () => {
     const navigate = useNavigate()
@@ -18,7 +19,7 @@ const EmptyBasket = () => {
                 Вероятней всего, вы не заказывали ещё пиццу.
                 Для того, чтобы заказать пиццу, перейди на главную страницу.
             </p>
-            <img className={cs.image} src={personWithImage}/>
+            <MyImage src={personWithImage} className={cs.image}/>
             <div className={cs.backButton} onClick={e => navigate('/home')}>
                 Вернуться назад
             </div>
