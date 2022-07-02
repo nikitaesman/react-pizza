@@ -1,0 +1,106 @@
+@import "src/styles/variables";
+.slider {
+  position: relative;
+  display: block;
+  width: 550px;
+  height: 510px;
+  padding: 0 35px;
+
+  .sliderBox {
+    position: relative;
+    display: block;
+    width: 480px;
+    height: 510px;
+    margin: 0 auto;
+    overflow: hidden;
+    .sliderContent {
+      position: absolute;
+      top: 0;
+      display: flex;
+      width: min-content;
+      transition: all 0.3s ease;
+
+      .slide {
+        display: block;
+        width: 480px;
+      }
+      .slide img{
+        width: 100%;
+      }
+    }
+  }
+
+
+  .controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    z-index: 10;
+    .control {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      cursor: pointer;
+      background: #b4b4b4;
+      color: #fff;
+      font-size: 30px;
+      transition: $transitionAll;
+
+      &:hover {
+        background: $orange;
+        color: #fff;
+      }
+
+      &:nth-child(1) {
+        padding-right: 2px;
+      }
+      &:nth-child(2) {
+        padding-left: 2px;
+      }
+    }
+  }
+
+  .points {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+
+    .pointItem {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 25px;
+      height: 25px;
+      background: #b4b4b4;
+      font-size: 13px;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 50%;
+      padding-top: 1px;
+      padding-right: 1px;
+      margin-right: 7px;
+      transition: $transitionAll;
+    }
+    .activePointItem {
+      transform: scale(1.1);
+      background: $orange;
+    }
+  }
+
+  .indicator {
+    position: absolute;
+    top: -40px;
+  }
+}
+
+
+

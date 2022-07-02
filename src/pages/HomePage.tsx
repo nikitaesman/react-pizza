@@ -27,7 +27,7 @@ const HomePage: FC = () => {
 
     return (
         <section className={cs.section}>
-            <Search search={search} setSearch={setSearch}/>
+            <Search search={search} setSearch={setSearch}/>-
             <div className={cs.outputSettings}>
                 <Categories category={category} setCategory={setCategory} setPage={setPage}/>
                 <Sorting sortBy={sortBy} setSortBy={setSortBy}/>

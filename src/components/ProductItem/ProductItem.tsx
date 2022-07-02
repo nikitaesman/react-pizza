@@ -5,6 +5,7 @@ import HorizontalSelect from "../UI/HorizontalSelect/HorizontalSelect";
 import {useDispatch} from "react-redux";
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import ProductLoader from "../ProductLoader";
+import {useNavigate} from "react-router-dom";
 
 interface ProductProps {
     pizza: IPizza
@@ -18,6 +19,7 @@ const ProductItem: FC<ProductProps> = ({pizza}) => {
         thick: 0, size: 25
     })
     const [actualPrice, setActualPrice] = useState<number>(pizza.price)
+    const navigate = useNavigate()
 
     const thickOptionsArray: IOption[] = [
         {title: "тонкое", value: 0},
@@ -65,7 +67,7 @@ const ProductItem: FC<ProductProps> = ({pizza}) => {
         <>
         {isLoading ? <ProductLoader/>: ""}
         <div className={isLoading ? cs.loading : cs.product}>
-            <img src={`${pizza.imageUrl}`} onLoad={e => setIsLoading(false)}   className={cs.image}/>
+            <img alt={pizza.title} src={`${pizza.imageUrl}`} onLoad={e => setIsLoading(false)}   className={cs.image} onClick={e => navigate(`/pizza/${pizza.id}`)}/>
             <h3 className={cs.title}>
                 {pizza.title}
             </h3>

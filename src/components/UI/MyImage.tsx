@@ -1,16 +1,18 @@
 import React, {FC, useState} from 'react';
+import Loader from "../Loader/Loader";
 
 interface ImageProps {
     src: string;
     className?: string;
+    alt?: string;
 }
 
-const MyImage: FC<ImageProps> = ({src, className}) => {
+const MyImage: FC<ImageProps> = ({src, className, alt}) => {
     const [pending, setPending] = useState<boolean>(true)
     return (
         <>
-            <img style={pending?{visibility: "hidden"}:{visibility: "visible"}} alt={"image"} onLoad={e => setPending(false)} src={src} className={className? className : ""}/>
-            {pending && <div className={className? className : ""}>Image is loading</div>}
+            <img alt={alt? alt:"Image"} style={pending?{visibility: "hidden"}:{visibility: "visible"}} onLoad={e => setPending(false)} src={src} className={className? className : ""}/>
+            {pending && <Loader/>}
         </>
     );
 };

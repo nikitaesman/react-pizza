@@ -15,6 +15,11 @@
     display: block;
     width: 260px;
     height: 260px;
+    cursor: pointer;
+    transition: $transitionAll;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   .title {
