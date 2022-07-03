@@ -2,30 +2,27 @@
 .slider {
   position: relative;
   display: block;
-  width: 550px;
-  height: 510px;
-  padding: 0 35px;
 
   .sliderBox {
     position: relative;
     display: block;
-    width: 480px;
-    height: 510px;
     margin: 0 auto;
     overflow: hidden;
     .sliderContent {
       position: absolute;
       top: 0;
       display: flex;
+      align-items: center;
       width: min-content;
-      transition: all 0.3s ease;
-
+      cursor: grab;
+      z-index: 100;
       .slide {
         display: block;
-        width: 480px;
+        pointer-events: none;
       }
       .slide img{
         width: 100%;
+        pointer-events: none;
       }
     }
   }
@@ -48,10 +45,15 @@
       height: 35px;
       border-radius: 50%;
       cursor: pointer;
-      background: #b4b4b4;
+      background: #c7c7c7;
       color: #fff;
       font-size: 30px;
       transition: $transitionAll;
+      -moz-user-select: none;
+      -khtml-user-select: none;
+      -webkit-user-select: none;
+      user-select: none;
+      box-shadow: 0px 2px 7px rgba(0,0,0,0.3);
 
       &:hover {
         background: $orange;
@@ -80,7 +82,7 @@
       justify-content: center;
       width: 25px;
       height: 25px;
-      background: #b4b4b4;
+      background: #c7c7c7;
       font-size: 13px;
       color: #fff;
       cursor: pointer;
@@ -89,9 +91,16 @@
       padding-right: 1px;
       margin-right: 7px;
       transition: $transitionAll;
+      -moz-user-select: none;
+      -khtml-user-select: none;
+      -webkit-user-select: none;
+      user-select: none;
+      &:hover {
+        background: $orange;
+      }
     }
     .activePointItem {
-      transform: scale(1.1);
+      transform: scale(1.2);
       background: $orange;
     }
   }

@@ -12,7 +12,7 @@ const MyImage: FC<ImageProps> = ({src, className, alt}) => {
     return (
         <>
             <img alt={alt? alt:"Image"} style={pending?{visibility: "hidden"}:{visibility: "visible"}} onLoad={e => setPending(false)} src={src} className={className? className : ""}/>
-            {pending && <Loader/>}
+            {pending && <Loader className={className? className : ""}/>}
         </>
     );
 };

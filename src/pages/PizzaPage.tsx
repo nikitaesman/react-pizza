@@ -4,6 +4,7 @@ import {IPizza} from "../types";
 import {useHttp} from "../hooks/useHttp";
 import {useParams} from "react-router-dom";
 import MySlider from "../components/MySlider/MySlider";
+import peopleWithBasket from '../images/people-with-basket.png'
 
 const PizzaPage: FC = () => {
     const [pizza, setPizza] = useState<IPizza | null>(null)
@@ -29,7 +30,7 @@ const PizzaPage: FC = () => {
         :
         <div className={cs.section}>
             <div className={cs.wrapBox}>
-                <MySlider slides={[pizza?.imageUrl,pizza?.imageUrl,pizza?.imageUrl,pizza?.imageUrl,pizza?.imageUrl]}/>
+                <MySlider slides={[pizza?.imageUrl,pizza?.imageUrl, peopleWithBasket,pizza?.imageUrl,pizza?.imageUrl,pizza?.imageUrl]} autoScroll={true} />
             </div>
             <div className={cs.wrapBox}>
                 <h2 className={cs.title}>
