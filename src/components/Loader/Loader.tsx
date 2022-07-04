@@ -4,12 +4,13 @@ import cs from './Loader.module.scss'
 
 interface LoaderProps {
     className?: string;
+    fullPage?: boolean;
 }
 
-const Loader: FC<LoaderProps> = ({className}) => {
+const Loader: FC<LoaderProps> = ({className= "",fullPage = false}) => {
     return (
-        <div className={cs.box}>
-            <img alt={"loading"} className={cs.loader + cs.className} src={logoImage}/>
+        <div className={fullPage ? cs.box+" "+cs.fullPage+" "+ cs.className : cs.box+" "+ cs.className}>
+            <img alt={"loading"} className={cs.loader} src={logoImage}/>
         </div>
     );
 };

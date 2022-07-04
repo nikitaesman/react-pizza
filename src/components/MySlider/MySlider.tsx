@@ -22,6 +22,7 @@ const MySlider: FC<SliderProps> = ({
        height= 500
 }) => {
     const [cord, setCord] = useState<number>(0)
+    const [handControl, setHandControl] = useState<boolean>(false)
     const sliderWidth: number = 500
     const sliderLayer = useRef<HTMLDivElement | null>(null)
     const [swipeDirection, setSwipeDirection] = useState<"next" | "prev">("next")
@@ -65,19 +66,23 @@ const MySlider: FC<SliderProps> = ({
             }else {
                 setSwipeDirection("next")
             }
+
+            setHandControl(true)
+            setCord(cord+e.movementX)
         }
     }
 
     function correctCordHandler() {
+        setHandControl(false)
         let slideIndex = Math.round(Math.abs(cord)/500)
 
         if (swipeDirection === "next") {
-            if (slideIndex === slides.length-1) {
+            if (slideIndex >= slides.length-1) {
                 return clickPointHandler(0)
             }
             clickPointHandler(slideIndex+1)
         }else {
-            if (slideIndex === 0) {
+            if (slideIndex <= 0) {
                 return clickPointHandler(slides.length-1)
             }
             clickPointHandler(slideIndex-1)
@@ -86,9 +91,9 @@ const MySlider: FC<SliderProps> = ({
 
     return (
         <div style={{width: width+100, height: height+40}} className={cs.slider}>
-            <div onMouseUp={correctCordHandler} onMouseMove={e => draggableHandler(e)} style={{width: width, height: height}} className={cs.sliderBox}>
+            <div onMouseOut={correctCordHandler} onMouseUp={correctCordHandler} onMouseMove={e => draggableHandler(e)} style={{width: width, height: height}} className={cs.sliderBox}>
                 <div ref={sliderLayer}
-                     style={{left: cord, transition: `all ${speed}s ease`}}
+                     style={handControl ? {left: cord} : {left: cord, transition: `all ${speed}s ease`}}
                      className={cs.sliderContent}
                 >
                     {slides.map((slide: any, index) =>
@@ -110,7 +115,7 @@ const MySlider: FC<SliderProps> = ({
                     </div>
                     <div className={cs.points}>
                         {slides.map((slide: any, index) =>
-                            <div key={index+100} className={cord === -index*sliderWidth ? cs.pointItem+" "+cs.activePointItem : cs.pointItem} onClick={e => clickPointHandler(index)}>
+                            <div key={index+100} className={index === Math.round(Math.abs(cord)/500) ? cs.pointItem+" "+cs.activePointItem : cs.pointItem} onClick={e => clickPointHandler(index)}>
                                 {index+1}
                             </div>
                         )}

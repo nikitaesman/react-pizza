@@ -5,6 +5,7 @@ import {BasketActionTypes, IBasketAction, IBasketItem} from "../../types";
 import CircleButton from "../UI/CircleButton/CircleButton";
 import {useDispatch} from "react-redux";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
+import MyImage from "../UI/MyImage";
 
 interface BasketItemProps {
     product: IBasketItem;
@@ -43,7 +44,7 @@ const BasketItem: FC<BasketItemProps> = ({product}) => {
     return (
         <div className={cs.box}>
             <div className={cs.info}>
-                <img className={cs.image} src={pizzaImage}/>
+                <MyImage className={cs.image} src={pizzaImage}/>
                 <div className={cs.infoTexts}>
                     <h3 className={cs.title}>
                         {product.pizza.title}

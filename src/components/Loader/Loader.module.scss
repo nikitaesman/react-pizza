@@ -2,14 +2,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 200px;
   .loader {
     display: block!important;
     width: 50px!important;
     height: 50px!important;
     animation: animLoader 3s linear infinite!important;
   }
+}
+
+.fullPage {
+  width: 100%!important;
+  height: 70vh!important;
 }
 
 

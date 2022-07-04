@@ -5,6 +5,7 @@ import {useHttp} from "../hooks/useHttp";
 import {useParams} from "react-router-dom";
 import MySlider from "../components/MySlider/MySlider";
 import peopleWithBasket from '../images/people-with-basket.png'
+import Loader from "../components/Loader/Loader";
 
 const PizzaPage: FC = () => {
     const [pizza, setPizza] = useState<IPizza | null>(null)
@@ -26,7 +27,7 @@ const PizzaPage: FC = () => {
 
     return (
         loading
-        ? <h2>Pizza id loading</h2>
+        ? <Loader fullPage={true}/>
         :
         <div className={cs.section}>
             <div className={cs.wrapBox}>
