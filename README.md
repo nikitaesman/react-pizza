@@ -5,7 +5,7 @@
 а так же добовление пицц в корзину с использованием настроек особенности каждой отдельной пиццы, суммирование стоимости и количества всех позиций в корзине и демонстрация модального окна оплаты заказа.
 
 This project is a partial functionality of an online pizza store, its main goal was to practice in TypeScript, as well as the creation of various custom React components. When creating the functionality, more than one pizza was not affected! The main functionality is loading and providing, sorting, searching and grouping data about pizzas, as well as adding pizzas to the basket using the settings of the features of each individual pizza, summing up the cost and quantity of all items in the basket and demonstrating the modal order payment window.
-# 👾​ Скрипты в проекте 👾​
+## 👾​ Скрипты в проекте 👾​
 
 Проект поддерживает набор стандартных скриптов React App, а именно:
 - ### `npm start`
@@ -13,7 +13,7 @@ This project is a partial functionality of an online pizza store, its main goal 
 - ### `npm build`
     Для запуска сборки в финальный бандл с разбиением его на чанки
 
-# 🛠 Технологии: 🛠
+## 🛠 Технологии: 🛠
 
 - **ReactJS 18**
 - **TypeScript**
