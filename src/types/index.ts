@@ -55,8 +55,9 @@ export type IProductsAction = FetchProductsAction | FetchProductsErrorAction | F
 ///--------------------------------------------------------------------------------------------------------------------------------
 
 export interface IBasketItem {
-    pizza: IPizza;
+    productId: number | string;
     price: number;
+    cost: number;
     settings: ISettings;
     count: number;
 }
@@ -64,12 +65,12 @@ export interface IBasketItem {
 export interface basketState {
     products: IBasketItem[];
     totalCount: number;
-    totalPrice: number;
+    totalCost: number;
 }
 
 export function isBasketState(obj: any): obj is basketState {
     return (obj as basketState).totalCount !== undefined
-        && (obj as basketState).totalPrice !== undefined
+        && (obj as basketState).totalCost !== undefined
         && (obj as basketState).products !== undefined
 }
 

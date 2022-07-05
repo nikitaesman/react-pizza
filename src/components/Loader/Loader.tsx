@@ -9,7 +9,7 @@ interface LoaderProps {
 
 const Loader: FC<LoaderProps> = ({className= "",fullPage = false}) => {
     return (
-        <div className={fullPage ? cs.box+" "+cs.fullPage+" "+ cs.className : cs.box+" "+ cs.className}>
+        <div className={fullPage ? cs.box+" "+cs.fullPage+" "+ cs.className : cs.box+" "+ className}>
             <img alt={"loading"} className={cs.loader} src={logoImage}/>
         </div>
     );

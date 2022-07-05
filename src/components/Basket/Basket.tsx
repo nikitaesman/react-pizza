@@ -5,7 +5,7 @@ import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {useLocation, useNavigate} from 'react-router-dom'
 
 const Basket = () => {
-    const {totalPrice, totalCount} = useTypedSelector(state => state.basket)
+    const {totalCost, totalCount} = useTypedSelector(state => state.basket)
     const navigate = useNavigate()
     let location = useLocation();
 
@@ -16,7 +16,7 @@ const Basket = () => {
     return (
         <div className={cs.basket} onClick={e => navigate('/basket')}>
             <div className={cs.price}>
-                {totalPrice} ₽
+                {totalCost} ₽
             </div>
             <div className={cs.dash}/>
             <div className={cs.count}>

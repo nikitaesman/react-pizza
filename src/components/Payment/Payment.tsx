@@ -15,7 +15,7 @@ interface PaymentProps {
 }
 
 const Payment: FC<PaymentProps> = ({modalOpen, setModalOpen}) => {
-    const {totalPrice, totalCount} = useTypedSelector(state => state.basket)
+    const {totalCost, totalCount} = useTypedSelector(state => state.basket)
     return (
         <Modal modalOpen={modalOpen} setModalOpen={setModalOpen}>
             <div className={cs.body}>
@@ -33,7 +33,7 @@ const Payment: FC<PaymentProps> = ({modalOpen, setModalOpen}) => {
                             <div className={cs.description__money}>
                                 <div className={cs.description__price}>
                                     <p className={cs.sumInput}>
-                                        {totalPrice}
+                                        {totalCost}
                                     </p>
                                     <span className={cs.grey__text +" "+cs.rubSymbol}>₽</span>
                                 </div>

@@ -8,13 +8,12 @@ import EmptyBasket from "../components/EmptyBasket/EmptyBasket";
 import BasketList from "../components/BasketList/BasketList";
 import {BasketActionTypes, IBasketAction} from "../types";
 import {useDispatch} from "react-redux";
-import Modal from "../components/UI/Modal/Modal";
 import Payment from "../components/Payment/Payment";
 
 const BasketPage: FC = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const {totalCount, products, totalPrice} = useTypedSelector(state => state.basket)
+    const {totalCount, products, totalCost} = useTypedSelector(state => state.basket)
     const [modalOpen, setModalOpen] = useState<boolean>(true)
 
 
@@ -30,7 +29,7 @@ const BasketPage: FC = () => {
             <EmptyBasket/>
             :
             <section className={cs.Basket}>
-                <Payment modalOpen={modalOpen} setModalOpen={setModalOpen}/>
+                {/*<Payment modalOpen={modalOpen} setModalOpen={setModalOpen}/>*/}
                 <div className={cs.header}>
                     <div className={cs.titleBox}>
                         <img src={basketImage}/>
@@ -53,7 +52,7 @@ const BasketPage: FC = () => {
                         Всего пицц: <span>{totalCount} шт</span>
                     </div>
                     <div className={cs.sum}>
-                        Сумма заказа: <span>{totalPrice} ₽</span>
+                        Сумма заказа: <span>{totalCost} ₽</span>
                     </div>
                 </div>
                 <div className={cs.actions}>

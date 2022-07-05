@@ -1,11 +1,11 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import cs from './BasketItem.module.scss'
-import pizzaImage from '../../images/pizza.png'
-import {BasketActionTypes, IBasketAction, IBasketItem} from "../../types";
+import {BasketActionTypes, IBasketAction, IBasketItem, IPizza} from "../../types";
 import CircleButton from "../UI/CircleButton/CircleButton";
 import {useDispatch} from "react-redux";
-import {useTypedSelector} from "../../hooks/useTypedSelector";
 import MyImage from "../UI/MyImage";
+import {useHttp} from "../../hooks/useHttp";
+import BasketItemLoader from "./BasketItemLoader";
 
 interface BasketItemProps {
     product: IBasketItem;
@@ -13,7 +13,19 @@ interface BasketItemProps {
 
 const BasketItem: FC<BasketItemProps> = ({product}) => {
     const dispatch = useDispatch()
-    const {products} = useTypedSelector(state => state.basket)
+    const {request,loading,error} = useHttp()
+    const [pizza, setPizza] = useState<IPizza>()
+
+    useEffect(() => {
+        fetchProduct()
+    }, [])
+
+    async function fetchProduct() {
+        try {
+            const data: IPizza = await request(`https://62b83043f4cb8d63df59e6d6.mockapi.io/api/v1/pizza/${product.productId}`, "GET", null, {})
+            setPizza(data)
+        } catch (e) {}
+    }
 
     function decrementItemHandler() {
         if (product.count > 1) {
@@ -41,13 +53,19 @@ const BasketItem: FC<BasketItemProps> = ({product}) => {
         return dispatch(deleteAction)
     }
 
+    if (loading) {
+        return (
+            <BasketItemLoader/>
+        )
+    }
+
     return (
         <div className={cs.box}>
             <div className={cs.info}>
-                <MyImage className={cs.image} src={pizzaImage}/>
+                <MyImage className={cs.image} src={pizza? pizza?.imageUrl:""}/>
                 <div className={cs.infoTexts}>
                     <h3 className={cs.title}>
-                        {product.pizza.title}
+                        {pizza?.title}
                     </h3>
                     <p className={cs.settings}>
                         {product.settings.thick === 0 ? "Тонкое" : "Традиционное"} тесто, {product.settings.size} см.

@@ -45,9 +45,10 @@ const ProductItem: FC<ProductProps> = ({pizza}) => {
 
     function addProductToBasket():void {
         const newBasketItem: IBasketItem = {
-            pizza: pizza,
+            productId: pizza.id,
             settings: settings,
             price: actualPrice,
+            cost: actualPrice,
             count: 1
         }
         dispatch({type: BasketActionTypes.BASKET_ADD, payload: newBasketItem})
@@ -56,7 +57,7 @@ const ProductItem: FC<ProductProps> = ({pizza}) => {
     function addedToBasketCounter(): number {
         let countAdded:number = 0
         products.forEach((item:IBasketItem) => {
-            if (item.pizza.id === pizza.id) {
+            if (item.productId === pizza.id) {
                 countAdded += item.count
             }
         })
