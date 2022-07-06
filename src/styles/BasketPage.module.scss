@@ -125,23 +125,8 @@
         border-bottom: 2px solid #fff;
       }
     }
-
-    .payment {
-      display: flex;
+    .paymentBtn {
       width: 210px;
-      justify-content: center;
-      align-items: center;
-      background: $orange;
-      color: #fff;
-      padding: 16px;
-      border-radius: 30px;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: $transitionAll;
-      &:hover {
-        background: #e8551d;
-      }
     }
   }
 }

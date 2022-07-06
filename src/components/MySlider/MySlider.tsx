@@ -26,16 +26,16 @@ const MySlider: FC<SliderProps> = ({
     const sliderWidth: number = 500
     const sliderLayer = useRef<HTMLDivElement | null>(null)
     const [swipeDirection, setSwipeDirection] = useState<"next" | "prev">("next")
+    const [oldSlideIndex, setOldSlideIndex] = useState<number | null>(null)
 
-    useEffect(() => {
-        //console.log("cord----------------------------------------------",cord)
-        if (autoScroll) {
-            const scrollInterval = setTimeout(() => {
-                rightSwipeHandler()
-            }, autoScrollDelay*1000)
-            return () => clearInterval(scrollInterval)
-        }
-    }, [cord])
+    // useEffect(() => {
+    //     if (autoScroll) {
+    //         const scrollInterval = setTimeout(() => {
+    //             rightSwipeHandler()
+    //         }, autoScrollDelay*1000)
+    //         return () => clearInterval(scrollInterval)
+    //     }
+    // }, [cord])
 
 
 
@@ -66,6 +66,10 @@ const MySlider: FC<SliderProps> = ({
             }else {
                 setSwipeDirection("next")
             }
+            if (oldSlideIndex === null) {
+                let slideIndex = Math.round(Math.abs(cord) / 500)
+                setOldSlideIndex(slideIndex)
+            }
 
             setHandControl(true)
             setCord(cord+e.movementX)
@@ -73,19 +77,23 @@ const MySlider: FC<SliderProps> = ({
     }
 
     function correctCordHandler() {
-        setHandControl(false)
-        let slideIndex = Math.round(Math.abs(cord)/500)
+        if(handControl && oldSlideIndex !== null) {
+            if (swipeDirection === "next") {
+                if (oldSlideIndex >= slides.length - 1) {
+                    clickPointHandler(0)
+                }else {
+                    clickPointHandler(oldSlideIndex + 1)
+                }
+            } else {
+                if (oldSlideIndex <= 0) {
+                    clickPointHandler(slides.length - 1)
+                }else {
+                    clickPointHandler(oldSlideIndex - 1)
+                }
 
-        if (swipeDirection === "next") {
-            if (slideIndex >= slides.length-1) {
-                return clickPointHandler(0)
             }
-            clickPointHandler(slideIndex+1)
-        }else {
-            if (slideIndex <= 0) {
-                return clickPointHandler(slides.length-1)
-            }
-            clickPointHandler(slideIndex-1)
+            setHandControl(prev => false)
+            setOldSlideIndex(prev => null)
         }
     }
 

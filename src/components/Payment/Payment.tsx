@@ -8,6 +8,9 @@ import iconCalendarImage from '../../images/payment/icons/calendar.png'
 import iconLockImage from '../../images/payment/icons/lock.png'
 import Modal from "../UI/Modal/Modal";
 import { useTypedSelector } from '../../hooks/useTypedSelector';
+import Button from "../UI/Button/Button";
+import {BasketActionTypes, IBasketAction} from "../../types";
+import {useDispatch} from "react-redux";
 
 interface PaymentProps {
     modalOpen: boolean;
@@ -15,7 +18,16 @@ interface PaymentProps {
 }
 
 const Payment: FC<PaymentProps> = ({modalOpen, setModalOpen}) => {
+    const dispatch = useDispatch()
     const {totalCost, totalCount} = useTypedSelector(state => state.basket)
+
+    function clearBasketHandler() {
+        const clearAction: IBasketAction = {
+            type: BasketActionTypes.BASKET_CLEAR
+        }
+        return dispatch(clearAction)
+    }
+
     return (
         <Modal modalOpen={modalOpen} setModalOpen={setModalOpen}>
             <div className={cs.body}>
@@ -91,9 +103,9 @@ const Payment: FC<PaymentProps> = ({modalOpen, setModalOpen}) => {
                                 Data is protected under the PCI DSS standard. We do not store your data and do not share it with the
                                 merchant.
                             </p>
-                            <button className={cs.button} type="submit">
+                            <Button onClick={clearBasketHandler}>
                                 Оплатить
-                            </button>
+                            </Button>
                         </form>
                     </div>
                 </section>

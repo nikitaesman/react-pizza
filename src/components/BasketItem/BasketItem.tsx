@@ -6,6 +6,7 @@ import {useDispatch} from "react-redux";
 import MyImage from "../UI/MyImage";
 import {useHttp} from "../../hooks/useHttp";
 import BasketItemLoader from "./BasketItemLoader";
+import { Link } from 'react-router-dom';
 
 interface BasketItemProps {
     product: IBasketItem;
@@ -61,7 +62,7 @@ const BasketItem: FC<BasketItemProps> = ({product}) => {
 
     return (
         <div className={cs.box}>
-            <div className={cs.info}>
+            <Link to={`../pizza/${product.productId}`} className={cs.info}>
                 <MyImage className={cs.image} src={pizza? pizza?.imageUrl:""}/>
                 <div className={cs.infoTexts}>
                     <h3 className={cs.title}>
@@ -71,7 +72,7 @@ const BasketItem: FC<BasketItemProps> = ({product}) => {
                         {product.settings.thick === 0 ? "Тонкое" : "Традиционное"} тесто, {product.settings.size} см.
                     </p>
                 </div>
-            </div>
+            </Link>
             <div className={cs.clarifying}>
                 <div className={cs.counter}>
                     <CircleButton color={"orange"} type={"decrement"} onClick={decrementItemHandler}/>
@@ -81,7 +82,7 @@ const BasketItem: FC<BasketItemProps> = ({product}) => {
                     <CircleButton color={"orange"} type={"increment"} onClick={incrementItemHandler}/>
                 </div>
                 <p className={cs.price}>
-                    {product.price} ₽
+                    {product.cost} ₽
                 </p>
                 <CircleButton color={"grey"} type={"delete"} onClick={deleteItemHandler}/>
             </div>

@@ -14,6 +14,11 @@
   .info {
     display: flex;
     align-items: center;
+    transition: $transitionAll;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.05);
+    }
     .image {
       display: block;
       width: 80px;

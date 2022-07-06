@@ -9,6 +9,7 @@ import BasketList from "../components/BasketList/BasketList";
 import {BasketActionTypes, IBasketAction} from "../types";
 import {useDispatch} from "react-redux";
 import Payment from "../components/Payment/Payment";
+import Button from "../components/UI/Button/Button";
 
 const BasketPage: FC = () => {
     const dispatch = useDispatch()
@@ -29,7 +30,7 @@ const BasketPage: FC = () => {
             <EmptyBasket/>
             :
             <section className={cs.Basket}>
-                {/*<Payment modalOpen={modalOpen} setModalOpen={setModalOpen}/>*/}
+                <Payment modalOpen={modalOpen} setModalOpen={setModalOpen}/>
                 <div className={cs.header}>
                     <div className={cs.titleBox}>
                         <img src={basketImage}/>
@@ -60,9 +61,9 @@ const BasketPage: FC = () => {
                         <div className={cs.arrow}/>
                         Вернуться назад
                     </div>
-                    <div className={cs.payment} onClick={e => setModalOpen(true)}>
-                        Оплатить сейчас
-                    </div>
+                    <Button className={cs.paymentBtn} onClick={e => setModalOpen(true)}>
+                        Оплатить заказ
+                    </Button>
                 </div>
             </section>
 
