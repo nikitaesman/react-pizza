@@ -1,4 +1,4 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import cs from "./Modal.module.scss"
 
 interface ModalProps {
@@ -8,9 +8,14 @@ interface ModalProps {
 }
 
 const Modal: FC<ModalProps> = ({children, modalOpen, setModalOpen}) => {
+    const [initState, setInitState] = useState<boolean>(!modalOpen)
+
+    useEffect(() => {
+        setTimeout(() => setInitState(false), 500)
+    }, [])
 
     return (
-        <div className={modalOpen ? cs.root+" "+cs.rootOpen : cs.root+" "+cs.rootClose} onClick={e => setModalOpen(false)}>
+        <div style={initState?{animationDuration: "0s"}:{}} className={modalOpen ? cs.root+" "+cs.rootOpen : cs.root+" "+cs.rootClose} onClick={e => setModalOpen(false)}>
             <div className={modalOpen ? cs.modal+" "+cs.modalOpen : cs.modal+" "+cs.modalClose} onClick={e => e.stopPropagation()}>
                 {children}
             </div>
