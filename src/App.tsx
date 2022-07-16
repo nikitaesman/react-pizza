@@ -1,4 +1,4 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import './styles/index.scss'
 import Navigation from "./components/Navigation/Navigation";
 import {BrowserRouter} from 'react-router-dom'
@@ -11,6 +11,7 @@ import {useTypedSelector} from "./hooks/useTypedSelector";
 const App: FC = () => {
     const dispatch = useDispatch()
     const basketState = useTypedSelector(state => state.basket)
+
 
     useEffect(() => {
         dispatch({type: BasketActionTypes.BASKET_STORAGE_GET})

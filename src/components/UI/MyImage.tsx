@@ -13,7 +13,7 @@ const MyImage: FC<ImageProps> = ({src, className, alt}) => {
         <>
             <img
                 alt={alt? alt:"Image"}
-                style={pending?{visibility: "hidden",width:0,height:0}:{visibility: "visible"}}
+                style={pending?{display: "none",width:0,height:0}:{display: "inherit"}}
                 onLoad={e => setPending(false)}
                 src={src} className={className? className : ""}/>
             {pending && <Loader className={className? className : ""}/>}

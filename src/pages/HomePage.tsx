@@ -10,6 +10,7 @@ import Categories from '../components/Categories/Categories';
 import Sorting from "../components/Sorting/Sorting";
 import Search from "../components/Search/Search";
 import NotFoundedProduct from "../components/NotFoundedProduct/NotFoundedProduct";
+import DiscountForm from '../components/DiscountForm/DiscountForm';
 
 const HomePage: FC = () => {
     const {fetchUsers} = useActions()
@@ -27,6 +28,7 @@ const HomePage: FC = () => {
 
     return (
         <section className={cs.section}>
+            <DiscountForm/>
             <Search search={search} setSearch={setSearch}/>
             <div className={cs.outputSettings}>
                 <Categories category={category} setCategory={setCategory} setPage={setPage}/>

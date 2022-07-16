@@ -15,7 +15,7 @@ const BasketPage: FC = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const {totalCount, products, totalCost} = useTypedSelector(state => state.basket)
-    const [modalOpen, setModalOpen] = useState<boolean>(true)
+    const [modalOpen, setModalOpen] = useState<boolean>(false)
 
 
     function clearBasketHandler() {

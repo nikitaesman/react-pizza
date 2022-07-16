@@ -7,7 +7,6 @@
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  opacity: 0;
   background: rgba(0,0,0,0.6);
   z-index: 10000;
   .modal {
@@ -38,6 +37,7 @@
   }
   100% {
     opacity: 1;
+    visibility: visible;
   }
 }
 
@@ -49,6 +49,7 @@
     opacity: 0;
   }
   100% {
+    opacity: 0;
     visibility: hidden;
   }
 }

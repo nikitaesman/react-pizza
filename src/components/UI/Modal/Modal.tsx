@@ -5,9 +5,10 @@ interface ModalProps {
     children: any;
     modalOpen: boolean;
     setModalOpen(state: boolean): void;
+    border?: boolean;
 }
 
-const Modal: FC<ModalProps> = ({children, modalOpen, setModalOpen}) => {
+const Modal: FC<ModalProps> = ({children, modalOpen, setModalOpen, border = true}) => {
     const [initState, setInitState] = useState<boolean>(!modalOpen)
 
     useEffect(() => {
@@ -15,8 +16,8 @@ const Modal: FC<ModalProps> = ({children, modalOpen, setModalOpen}) => {
     }, [])
 
     return (
-        <div style={initState?{animationDuration: "0s"}:{}} className={modalOpen ? cs.root+" "+cs.rootOpen : cs.root+" "+cs.rootClose} onClick={e => setModalOpen(false)}>
-            <div className={modalOpen ? cs.modal+" "+cs.modalOpen : cs.modal+" "+cs.modalClose} onClick={e => e.stopPropagation()}>
+        <div style={initState?{animationDuration: "0s"}:{}} className={modalOpen ? cs.root+" "+cs.rootOpen : cs.root+" "+cs.rootClose} onMouseDown={e => setModalOpen(false)}>
+            <div style={!border?{padding: 0}:{}}  className={modalOpen ? cs.modal+" "+cs.modalOpen : cs.modal+" "+cs.modalClose} onMouseDown={e => e.stopPropagation()}>
                 {children}
             </div>
         </div>

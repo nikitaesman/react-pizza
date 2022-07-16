@@ -36,7 +36,7 @@ const Payment: FC<PaymentProps> = ({modalOpen, setModalOpen}) => {
                         <div className={cs.description__content}>
                             <div className={cs.description__info}>
                                 <p className={cs.description__course}>
-                                    Заказ номер: {Math.random().toString().substring(2,8)}
+                                    Заказ номер: {Math.random().toString().substring(2, 8)}
                                 </p>
                                 <p className={cs.description__email}>
                                     Количество позиций в заказе: {totalCount}
