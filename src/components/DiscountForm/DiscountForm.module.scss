@@ -1,0 +1,40 @@
+@import "src/styles/variables";
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: $orange;
+  padding: 50px;
+  border-radius: 30px;
+  .image {
+    width: 400px;
+    margin-right: -50px;
+  }
+  .offer {
+    text-align: center;
+    width: 450px;
+    margin-right: 100px;
+
+    .title {
+      color: #fff;
+    }
+    .text {
+      color: #fff;
+      margin-top: 10px;
+    }
+
+    .form {
+      display: block;
+      width: 100%;
+      margin: 20px auto;
+      .formBtn {
+        margin-top: 20px;
+        background: #fff;
+        color: $orange;
+        &:hover {
+          background: #eeeeee;
+        }
+      }
+    }
+  }
+}
