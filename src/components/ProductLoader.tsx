@@ -5,6 +5,7 @@ interface IProps {}
 
 const ProductLoader:FC<IProps> = () => (
     <ContentLoader
+        style={{marginRight: 5, marginBottom: 30}}
         speed={1}
         width={280}
         height={478}

@@ -24,6 +24,12 @@ const Pagination: FC<PaginationProps> = ({pageNum, limit, setPage}) => {
         setPagesArray(newPagesArray)
     }, [totalCount])
 
+    useEffect(scrollHandler, [pageNum])
+
+    function scrollHandler () {
+        window.scrollTo({top: -0, behavior: "smooth"})
+    }
+
     function prevNextChange(vix: "plus"|"minus"): void {
         if (vix === "minus") {
             if (pageNum !== 1) {
@@ -36,6 +42,7 @@ const Pagination: FC<PaginationProps> = ({pageNum, limit, setPage}) => {
             }
         }
     }
+
     if (loading) {
         return (
             <ContentLoader

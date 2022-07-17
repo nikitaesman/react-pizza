@@ -24,7 +24,6 @@ const Sorting: FC<SortingProps> = ({sortBy, setSortBy}) => {
 
     return (
         <div className={cs.box}>
-            <img/>
             <p>
                 Сортировка по:
                 <span>

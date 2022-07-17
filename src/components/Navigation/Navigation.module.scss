@@ -34,3 +34,50 @@ header {
   }
 }
 
+/* 768-992 */
+@media screen and (max-width: 992px) {
+  .logo {
+    margin-left: 12px;
+    img {
+      width: 34px;
+      height: 34px;
+    }
+
+    .logoWrapper {
+      margin-left: 12px;
+
+      .logoTitle {
+        font-size: 22px;
+        line-height: 22px;
+      }
+
+      .slogan {
+        font-size: 12px;
+        color: #7B7B7B;
+      }
+    }
+  }
+}
+
+/* 320-576 */
+@media screen and (max-width: 576px) {
+  .logo {
+    margin-left: 9px;
+    img {
+      width: 34px;
+      height: 34px;
+    }
+    .logoWrapper {
+
+      .logoTitle {
+        width: 70px;
+        font-size: 22px;
+        line-height: 22px;
+      }
+
+      .slogan {
+        display: none;
+      }
+    }
+  }
+}

@@ -54,3 +54,19 @@
 
   }
 }
+
+/* 768-992 */
+@media screen and (max-width: 992px) {
+  .box {
+    p {
+      font-size: 12px;
+    }
+  }
+}
+
+/* 576-768 */
+@media screen and (max-width: 768px) {
+  .box {
+    margin-top: 10px;
+  }
+}

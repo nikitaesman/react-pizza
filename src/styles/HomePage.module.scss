@@ -10,6 +10,7 @@
 }
 
 .productsList {
+  width: 100%;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -19,3 +20,28 @@
   margin-top: 35px;
   margin-bottom: 35px;
 }
+
+/* ------ Media Queries ------ */
+
+/* 992-1200 */
+@media screen and (max-width: 1200px) {
+
+
+}
+
+/* 576-768 */
+@media screen and (max-width: 768px) {
+  .outputSettings {
+    flex-wrap: wrap;
+    height: 60px;
+  }
+
+}
+
+/* 320-576 */
+@media screen and (max-width: 576px) {
+  .outputSettings {
+    height: min-content;
+  }
+}
+

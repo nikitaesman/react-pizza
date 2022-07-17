@@ -12,12 +12,10 @@
 
 html {
   background: $background;
-  padding: 25px
 }
 
 body {
   display: block;
-  width: $container-width;
   margin: 0 auto;
 
   font-family: 'Proxima Nova', sans-serif;
@@ -28,4 +26,67 @@ body {
   padding: 52px 67px 30px 67px;
   box-shadow: 0 15px 20px rgba(0, 0, 0, 0.03);
   border-radius: 10px;
+}
+
+/* ------ Media Queries ------ */
+
+/* 1400+ */
+@media screen and (min-width: 1400px) {
+  html {
+    padding: 25px;
+  }
+  body {
+    width: $container-width;
+  }
+
+}
+
+/* 1200-1400 */
+@media screen and (max-width: 1400px) {
+  html {
+    padding: 15px 0;
+  }
+  body {
+    width: 1140px;
+  }
+
+}
+
+/* 992-1200 */
+@media screen and (max-width: 1200px) {
+  body {
+    width: 960px;
+  }
+
+}
+
+/* 768-992 */
+@media screen and (max-width: 992px) {
+  body {
+    width: 720px;
+    padding: 30px 40px;
+  }
+
+}
+
+/* 576-768 */
+@media screen and (max-width: 768px) {
+  body {
+    width: 540px;
+    padding: 30px 40px;
+  }
+
+}
+
+/* 320-576 */
+@media screen and (max-width: 576px) {
+  html {
+    padding: 0;
+  }
+  body {
+    width: 100%;
+    padding: 20px 30px;
+    border-radius: 0;
+  }
+
 }

@@ -31,3 +31,30 @@
     }
   };
 }
+
+/* 768-992 */
+@media screen and (max-width: 992px) {
+  .basket {
+    padding: 9px 17px;
+    font-size: 14px;
+  }
+}
+
+/* 320-576 */
+@media screen and (max-width: 576px) {
+  .basket {
+    padding: 6px 9px;
+    font-size: 11px;
+    .dash {
+      margin: 0 5px;
+    }
+    .count {
+      img {
+        display: block;
+        width: 15px;
+        height: 15px;
+        margin-right: 4px;
+      }
+    };
+  }
+}

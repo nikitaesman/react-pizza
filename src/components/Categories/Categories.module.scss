@@ -25,3 +25,44 @@
     color: #fff;
   }
 }
+
+/* 992-1200 */
+@media screen and (max-width: 1200px) {
+  .box {
+    .item {
+      padding: 10px 12px;
+      margin-right: 7px;
+      font-size: 14px;
+      background: #f1f1f1;
+    }
+    .activeItem {
+      background: #282828;
+      color: #fff;
+    }
+  }
+
+}
+
+/* 768-992 */
+@media screen and (max-width: 992px) {
+  .box {
+    .item {
+      padding: 6px 8px;
+      margin-right: 5px;
+      font-size: 12px;
+    }
+  }
+}
+
+/* 320-576 */
+@media screen and (max-width: 576px) {
+  .box {
+    width: 90%;
+    margin: 40px auto 0;
+    flex-wrap: wrap;
+    .item {
+      padding: 8px 10px;
+      margin-bottom: 5px;
+    }
+  }
+}
