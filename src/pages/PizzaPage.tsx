@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useEffect, useRef, useState} from 'react';
 import cs from '../styles/PizzaPage.module.scss'
 import {IPizza} from "../types";
 import {useHttp} from "../hooks/useHttp";
@@ -12,6 +12,8 @@ const PizzaPage: FC = () => {
     const [pizza, setPizza] = useState<IPizza | null>(null)
     const {request, loading} = useHttp()
     const params = useParams()
+    const [sliderWidth, setSliderWidth] = useState<number>(500)
+    const windowWidthRef = useRef<HTMLDivElement | null>(null)
 
     useEffect(() => {
         fetchPizzaItem()
@@ -24,6 +26,19 @@ const PizzaPage: FC = () => {
         } catch (e) {}
     }
 
+    useEffect(() => {
+        window.addEventListener("resize", resizeHandler)
+        resizeHandler()
+        return () => {
+            window.removeEventListener("resize", resizeHandler)
+        }
+    }, [])
+
+    function resizeHandler() {
+        const windowWidth = windowWidthRef.current?.clientWidth
+        setSliderWidth((windowWidth || 600)-100)
+    }
+
 
 
     return (
@@ -32,8 +47,8 @@ const PizzaPage: FC = () => {
         :
         <div className={cs.section}>
             <div className={cs.wrapContainer}>
-                <div className={cs.wrapBox}>
-                    <MySlider slides={[pizza?.imageUrl,pizza?.imageUrl, peopleWithBasket,pizza?.imageUrl,pizza?.imageUrl,pizza?.imageUrl]} autoScroll={true} />
+                <div ref={windowWidthRef} className={cs.wrapBox}>
+                    <MySlider width={sliderWidth > 500? 500 : sliderWidth} slides={[pizza?.imageUrl,pizza?.imageUrl, peopleWithBasket,pizza?.imageUrl,pizza?.imageUrl,pizza?.imageUrl]} autoScroll={true} />
                 </div>
                 <div className={cs.wrapBox}>
                     <h2 className={cs.title}>
@@ -67,7 +82,7 @@ const PizzaPage: FC = () => {
                 </div>
             </div>
             <Link className={cs.linkBack} to="../../">
-                <Button onClick={e => {}}>
+                <Button className={cs.backBtn} onClick={e => {}}>
                     Вернуться назад
                 </Button>
             </Link>

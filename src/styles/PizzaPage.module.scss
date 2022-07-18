@@ -1,4 +1,10 @@
 @import "variables";
+
+@mixin sliderSize($x) {
+  width: $x+100px;
+  height: $x+40px;
+}
+
 .section {
   display: block;
   margin-top: 70px;
@@ -13,23 +19,23 @@
       width: 45%;
 
       .title {
-        font-size: 35px;
+        font-size: 30px;
       }
 
       .description {
-        font-size: 20px;
-        line-height: 24px;
+        font-size: 16px;
+        line-height: 20px;
         margin-top: 20px;
       }
 
       .ingredients {
         display: block;
-        margin-top: 20px;
-        font-size: 18px;
+        margin-top: 16px;
+        font-size: 16px;
         list-style: symbols("-");
 
         .head {
-          font-size: 24px;
+          font-size: 18px;
           display: block;
         }
         .group {
@@ -40,7 +46,7 @@
           color: #7B7B7B;
           margin-left: 15px;
           line-height: 20px;
-          font-size: 16px;
+          font-size: 14px;
         }
       }
     }
@@ -52,6 +58,64 @@
   }
 }
 
-.orangeSpan {
-  color: $orange;
+/* 1200-1400 */
+@media screen and (max-width: 1400px) {
+
+}
+
+/* 992-1200 */
+@media screen and (max-width: 1200px) {
+  .section {
+    margin-top: 15px;
+    .wrapContainer {
+      flex-direction: column-reverse;
+      .wrapBox {
+        width: 100%;
+        &:nth-child(1) {
+          margin-top: 30px;
+        }
+        .description {
+          font-size: 16px;
+          text-align: justify;
+        }
+      }
+    }
+  }
+}
+
+/* 320-576 */
+@media screen and (max-width: 576px) {
+  .section {
+    .wrapContainer {
+      .wrapBox {
+        .title {
+          font-size: 25px;
+        }
+        .description {
+          font-size: 14px;
+          text-align: justify;
+          line-height: 14px;
+          margin-top: 10px;
+        }
+        .ingredients {
+          margin-top: 8px;
+          .head {
+            font-size: 16px;
+          }
+          .group {
+            margin: 7px 0 3px 0;
+          }
+          li p {
+            margin-left: 10px;
+            line-height: 12px;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    .backBtn {
+      width: 150px;
+      font-size: 14px;
+    }
+  }
 }

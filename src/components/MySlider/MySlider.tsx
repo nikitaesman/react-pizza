@@ -9,7 +9,7 @@ interface SliderProps {
     speed?: number;
     controls?: boolean;
     width?: number;
-    height?: number
+    className?: string;
 }
 
 const MySlider: FC<SliderProps> = ({
@@ -18,44 +18,51 @@ const MySlider: FC<SliderProps> = ({
        controls = true,
        autoScrollDelay= 3,
        speed = 0.4,
-       width= 500,
-       height= 500
+       width= 500
 }) => {
     const [cord, setCord] = useState<number>(0)
     const [handControl, setHandControl] = useState<boolean>(false)
-    const sliderWidth: number = 500
     const sliderLayer = useRef<HTMLDivElement | null>(null)
     const [swipeDirection, setSwipeDirection] = useState<"next" | "prev">("next")
     const [oldSlideIndex, setOldSlideIndex] = useState<number | null>(null)
 
-    // useEffect(() => {
-    //     if (autoScroll) {
-    //         const scrollInterval = setTimeout(() => {
-    //             rightSwipeHandler()
-    //         }, autoScrollDelay*1000)
-    //         return () => clearInterval(scrollInterval)
-    //     }
-    // }, [cord])
+    useEffect(() => {
+        if (autoScroll) {
+            const scrollInterval = setTimeout(() => {
+                rightSwipeHandler()
+            }, autoScrollDelay*1000)
+            return () => clearInterval(scrollInterval)
+        }
+    }, [cord])
 
+    useEffect(() => {
+        clickPointHandler(0)
+    }, [width])
 
 
 
     function leftSwipeHandler() {
-        if (cord >= 0) {
-            return setCord(-(slides.length-1)*sliderWidth)
+        let slideIndex = Math.round(Math.abs(cord) / width)
+
+        if (slideIndex <= 0) {
+            clickPointHandler(slides.length - 1)
+        }else {
+            clickPointHandler(slideIndex - 1)
         }
-        setCord(cord+sliderWidth)
     }
 
     function rightSwipeHandler() {
-        if (cord <= -(slides.length-1)*sliderWidth) {
-            return setCord(0)
+        let slideIndex = Math.round(Math.abs(cord) / width)
+
+        if (slideIndex >= slides.length - 1) {
+            clickPointHandler(0)
+        }else {
+            clickPointHandler(slideIndex + 1)
         }
-        setCord(cord-sliderWidth)
     }
 
     function clickPointHandler(index: number) {
-        setCord(-index*sliderWidth)
+        setCord(-index*width)
     }
 
     function draggableHandler(e: React.MouseEvent<HTMLDivElement>): void {
@@ -67,7 +74,7 @@ const MySlider: FC<SliderProps> = ({
                 setSwipeDirection("next")
             }
             if (oldSlideIndex === null) {
-                let slideIndex = Math.round(Math.abs(cord) / 500)
+                let slideIndex = Math.round(Math.abs(cord) / width)
                 setOldSlideIndex(slideIndex)
             }
 
@@ -98,8 +105,8 @@ const MySlider: FC<SliderProps> = ({
     }
 
     return (
-        <div style={{width: width+100, height: height+40}} className={cs.slider}>
-            <div onMouseOut={correctCordHandler} onMouseUp={correctCordHandler} onMouseMove={e => draggableHandler(e)} style={{width: width, height: height}} className={cs.sliderBox}>
+        <div style={{width: width+100, height: width+40}} className={cs.slider}>
+            <div onMouseOut={correctCordHandler} onMouseUp={correctCordHandler} onMouseMove={e => draggableHandler(e)} style={{width: width, height: width}} className={cs.sliderBox}>
                 <div ref={sliderLayer}
                      style={handControl ? {left: cord} : {left: cord, transition: `all ${speed}s ease`}}
                      className={cs.sliderContent}
@@ -123,7 +130,7 @@ const MySlider: FC<SliderProps> = ({
                     </div>
                     <div className={cs.points}>
                         {slides.map((slide: any, index) =>
-                            <div key={index+100} className={index === Math.round(Math.abs(cord)/500) ? cs.pointItem+" "+cs.activePointItem : cs.pointItem} onClick={e => clickPointHandler(index)}>
+                            <div key={index+100} className={index === Math.round(Math.abs(cord)/width) ? cs.pointItem+" "+cs.activePointItem : cs.pointItem} onClick={e => clickPointHandler(index)}>
                                 {index+1}
                             </div>
                         )}

@@ -1,7 +1,9 @@
 @import "src/styles/variables";
+
 .slider {
   position: relative;
   display: block;
+  margin: 0 auto;
 
   .sliderBox {
     position: relative;
