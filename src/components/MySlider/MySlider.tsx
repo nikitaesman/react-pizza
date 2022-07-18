@@ -137,7 +137,6 @@ const MySlider: FC<SliderProps> = ({
                     </div>
                 </>
             }
-
         </div>
     );
 };
