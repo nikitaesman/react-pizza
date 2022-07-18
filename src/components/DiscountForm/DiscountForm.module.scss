@@ -38,3 +38,38 @@
     }
   }
 }
+
+/* 992-1200 */
+@media screen and (max-width: 1200px) {
+  .box {
+    .offer {
+      margin-right: 0;
+    }
+  }
+}
+
+/* 768-992 */
+@media screen and (max-width: 992px) {
+  .box {
+    width: 680px;
+    height: 400px;
+  }
+}
+
+/* 576-768 */
+@media screen and (max-width: 768px) {
+  .preBox {
+    transform: scale(0.7) translate(-107px, -71px);
+    width: 470px;
+    height: 271px;
+  }
+}
+
+/* 320-576 */
+@media screen and (max-width: 576px) {
+  .preBox {
+    transform: scale(0.4) translate(-220px, -181px);
+    width: 240px;
+    height: 123px;
+  }
+}

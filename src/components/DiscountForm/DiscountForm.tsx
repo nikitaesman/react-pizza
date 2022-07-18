@@ -25,30 +25,32 @@ const DiscountForm = () => {
 
     return (
         <Modal modalOpen={discountModal} setModalOpen={setDiscountModal} border={false}>
-            <div className={cs.box}>
-                <div className={cs.offer}>
-                    <h2 className={cs.title}>
-                        Вам повезло, скидка 15%
-                    </h2>
-                    <p className={cs.text}>
-                        Заполните форму и получите скидку 15% на заказ от 599₽
-                    </p>
-                    <form
-                        className={cs.form}
-                        onSubmit={(e)=>{
-                            e.preventDefault()
-                            setDiscountModal(false)
-                            localStorage.setItem("discount", JSON.stringify(true))
-                        }}
-                    >
-                        <Input placeholder="Введите имя" required={true}/>
-                        <Input placeholder="Введите почту" required={true}/>
-                        <Button type="submit" className={cs.formBtn} onClick={() => {}}>
-                            Получить скидку
-                        </Button>
-                    </form>
+            <div className={cs.preBox}>
+                <div className={cs.box}>
+                    <div className={cs.offer}>
+                        <h2 className={cs.title}>
+                            Вам повезло, скидка 15%
+                        </h2>
+                        <p className={cs.text}>
+                            Заполните форму и получите скидку 15% на заказ от 599₽
+                        </p>
+                        <form
+                            className={cs.form}
+                            onSubmit={(e)=>{
+                                e.preventDefault()
+                                setDiscountModal(false)
+                                localStorage.setItem("discount", JSON.stringify(true))
+                            }}
+                        >
+                            <Input placeholder="Введите имя" required={true}/>
+                            <Input placeholder="Введите почту" required={true}/>
+                            <Button type="submit" className={cs.formBtn} onClick={() => {}}>
+                                Получить скидку
+                            </Button>
+                        </form>
+                    </div>
+                    <MyImage className={cs.image} src={PizzaSliceImage}/>
                 </div>
-                <MyImage className={cs.image} src={PizzaSliceImage}/>
             </div>
         </Modal>
     );

@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useEffect, useRef, useState} from 'react';
 import cs from './BasketItem.module.scss'
 import {BasketActionTypes, IBasketAction, IBasketItem, IPizza} from "../../types";
 import CircleButton from "../UI/CircleButton/CircleButton";
@@ -7,6 +7,7 @@ import MyImage from "../UI/MyImage";
 import {useHttp} from "../../hooks/useHttp";
 import BasketItemLoader from "./BasketItemLoader";
 import { Link } from 'react-router-dom';
+import Loader from "../Loader/Loader";
 
 interface BasketItemProps {
     product: IBasketItem;
@@ -54,38 +55,40 @@ const BasketItem: FC<BasketItemProps> = ({product}) => {
         return dispatch(deleteAction)
     }
 
-    if (loading) {
-        return (
-            <BasketItemLoader/>
-        )
-    }
-
     return (
         <div className={cs.box}>
-            <Link to={`../pizza/${product.productId}`} className={cs.info}>
-                <MyImage className={cs.image} src={pizza? pizza?.imageUrl:""}/>
-                <div className={cs.infoTexts}>
-                    <h3 className={cs.title}>
-                        {pizza?.title}
-                    </h3>
-                    <p className={cs.settings}>
-                        {product.settings.thick === 0 ? "Тонкое" : "Традиционное"} тесто, {product.settings.size} см.
-                    </p>
-                </div>
-            </Link>
-            <div className={cs.clarifying}>
-                <div className={cs.counter}>
-                    <CircleButton color={"orange"} type={"decrement"} onClick={decrementItemHandler}/>
-                    <p className={cs.count}>
-                        {product.count}
-                    </p>
-                    <CircleButton color={"orange"} type={"increment"} onClick={incrementItemHandler}/>
-                </div>
-                <p className={cs.price}>
-                    {product.cost} ₽
-                </p>
-                <CircleButton color={"grey"} type={"delete"} onClick={deleteItemHandler}/>
-            </div>
+            {loading
+                ? window.innerWidth < 992 ? <Loader/> : <BasketItemLoader/>
+                :
+                <>
+                    <Link to={`../pizza/${product.productId}`} className={cs.info}>
+                        <MyImage className={cs.image} src={pizza? pizza?.imageUrl:""}/>
+                        <div className={cs.infoTexts}>
+                            <h3 className={cs.title}>
+                                {pizza?.title}
+                            </h3>
+                            <p className={cs.settings}>
+                                {product.settings.thick === 0 ? "Тонкое" : "Традиционное"} тесто, {product.settings.size} см.
+                            </p>
+                        </div>
+                    </Link>
+                    <div className={cs.clarifying}>
+                        <div className={cs.counter}>
+                            <CircleButton className={cs.CircleButtonSmall}  color={"orange"} type={"decrement"} onClick={decrementItemHandler}/>
+                            <p className={cs.count}>
+                                {product.count}
+                            </p>
+                            <CircleButton className={cs.CircleButtonSmall} color={"orange"} type={"increment"} onClick={incrementItemHandler}/>
+                        </div>
+                        <div className={cs.wrapper}>
+                            <p className={cs.price}>
+                                {product.cost} ₽
+                            </p>
+                            <CircleButton className={cs.CircleButtonSmall} color={"grey"} type={"delete"} onClick={deleteItemHandler}/>
+                        </div>
+                    </div>
+                </>
+            }
         </div>
     );
 };

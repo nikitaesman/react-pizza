@@ -65,7 +65,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 15px;
 
     .count {
       display: flex;
@@ -127,6 +127,134 @@
     }
     .paymentBtn {
       width: 210px;
+    }
+  }
+}
+
+/* 768-992 */
+@media screen and (max-width: 992px) {
+  .Basket {
+    width: 100%;
+    .itemsList {
+      flex: 1 1 auto;
+    }
+    .header {
+      .titleBox {
+        img {
+          width: 25px;
+          height: 25px;
+        }
+        h2 {
+          font-size: 25px;
+          margin-left: 12px;
+        }
+      }
+    }
+  }
+}
+
+/* 576-768 */
+@media screen and (max-width: 768px) {
+  .Basket {
+    padding-top: 20px;
+    .header {
+      padding-bottom: 20px;
+    }
+    .details {
+      .result {
+        margin-top: 20px;
+
+        .count {
+          font-size: 18px;
+        }
+
+        .sum {
+          font-size: 18px;
+        }
+      }
+
+      .actions {
+        margin-top: 20px;
+
+        .backButton {
+          width: 160px;
+          font-size: 14px;
+        }
+
+        .paymentBtn {
+          width: 160px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+/* 320-576 */
+@media screen and (max-width: 576px) {
+  .Basket {
+    min-height: 87vh;
+
+    .header {
+      .titleBox {
+        img {
+          width: 22px;
+          height: 22px;
+        }
+        h2 {
+          font-size: 20px;
+          margin-left: 8px;
+        }
+      }
+      .clearButton {
+        img {
+          width: 16px;
+          height: 16px;
+        }
+        p {
+          margin-left: 2px;
+          margin-top: 2px;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .itemsList {
+      min-height: min-content;
+    }
+    .details {
+      .result {
+        margin-top: 15px;
+
+        .count {
+          font-size: 14px;
+        }
+
+        .sum {
+          font-size: 14px;
+        }
+      }
+
+      .actions {
+        margin-top: 20px;
+
+        .backButton {
+          width: 40px;
+          height: 40px;
+          font-size: 0;
+          padding: 10px;
+          justify-content: center;
+          .arrow {
+            margin-right: -3px;
+            margin-top: 0;
+          }
+        }
+
+        .paymentBtn {
+          width: 160px;
+          font-size: 14px;
+        }
+      }
     }
   }
 }

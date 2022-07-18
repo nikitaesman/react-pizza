@@ -213,3 +213,29 @@
     }
 }
 
+/* 768-992 */
+@media screen and (max-width: 992px) {
+    .body {
+        transform: scale(0.9) translateX(-20px);
+        width: 680px;
+    }
+}
+
+/* 576-768 */
+@media screen and (max-width: 768px) {
+    .body {
+        transform: scale(0.7) translate(-120px, -100px);
+        width: 470px;
+        height: 400px;
+    }
+}
+
+/* 320-576 */
+@media screen and (max-width: 576px) {
+    .body {
+        transform: scale(0.4) translate(-241px, -181px);
+        width: 240px;
+        height: 246px;
+    }
+}
+

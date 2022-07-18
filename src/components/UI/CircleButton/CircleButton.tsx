@@ -5,13 +5,14 @@ interface CircleButtonProps {
     color: "grey" | "orange";
     type: "delete" | "increment" | "decrement";
     onClick(e: any): void
+    className?: string;
 }
 
-const CircleButton: FC<CircleButtonProps> = ({color, type, onClick}) => {
+const CircleButton: FC<CircleButtonProps> = ({color, type, onClick, className}) => {
     switch (type) {
         case "decrement":
             return (
-                <div onClick={onClick} className={color === "orange" ? cs.button+" "+cs.button_orange : cs.button+" "+cs.button_grey}>
+                <div onClick={onClick} className={color === "orange" ? cs.button+" "+(className??className)+" "+cs.button_orange : cs.button+" "+(className??className)+" "+cs.button_grey}>
                     <div className={cs.figureBox}>
                         <div className={cs.figureLine}/>
                     </div>
@@ -20,7 +21,7 @@ const CircleButton: FC<CircleButtonProps> = ({color, type, onClick}) => {
             break
         case "increment":
             return (
-                <div onClick={onClick} className={color === "orange" ? cs.button+" "+cs.button_increment+" "+cs.button_orange : cs.button+" "+cs.button_increment+" "+cs.button_grey}>
+                <div onClick={onClick} className={color === "orange" ? cs.button+" "+(className??className)+" "+cs.button_increment+" "+cs.button_orange : cs.button+" "+(className??className)+" "+cs.button_increment+" "+cs.button_grey}>
                     <div className={cs.figureBox}>
                         <div className={cs.figureLine}/>
                         <div className={cs.figureLine}/>
@@ -30,7 +31,7 @@ const CircleButton: FC<CircleButtonProps> = ({color, type, onClick}) => {
             break
         case "delete":
             return (
-                <div onClick={onClick} className={color === "orange" ? cs.button+" "+cs.button_delete+" "+cs.button_orange : cs.button+" "+cs.button_delete+" "+cs.button_grey}>
+                <div onClick={onClick} className={color === "orange" ? cs.button+" "+(className??className)+" "+cs.button_delete+" "+cs.button_orange : cs.button+" "+(className??className)+" "+cs.button_delete+" "+cs.button_grey}>
                     <div className={cs.figureBox}>
                         <div className={cs.figureLine}/>
                         <div className={cs.figureLine}/>

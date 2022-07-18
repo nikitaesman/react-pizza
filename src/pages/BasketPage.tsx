@@ -48,22 +48,24 @@ const BasketPage: FC = () => {
                 <div className={cs.itemsList}>
                     <BasketList products={products}/>
                 </div>
-                <div className={cs.result}>
-                    <div className={cs.count}>
-                        Всего пицц: <span>{totalCount} шт</span>
+                <div className={cs.details}>
+                    <div className={cs.result}>
+                        <div className={cs.count}>
+                            Всего пицц: <span>{totalCount} шт</span>
+                        </div>
+                        <div className={cs.sum}>
+                            Сумма заказа: <span>{totalCost} ₽</span>
+                        </div>
                     </div>
-                    <div className={cs.sum}>
-                        Сумма заказа: <span>{totalCost} ₽</span>
+                    <div className={cs.actions}>
+                        <div className={cs.backButton} onClick={e => navigate('/home')}>
+                            <div className={cs.arrow}/>
+                            Вернуться назад
+                        </div>
+                        <Button className={cs.paymentBtn} onClick={e => setModalOpen(true)}>
+                            Оплатить заказ
+                        </Button>
                     </div>
-                </div>
-                <div className={cs.actions}>
-                    <div className={cs.backButton} onClick={e => navigate('/home')}>
-                        <div className={cs.arrow}/>
-                        Вернуться назад
-                    </div>
-                    <Button className={cs.paymentBtn} onClick={e => setModalOpen(true)}>
-                        Оплатить заказ
-                    </Button>
                 </div>
             </section>
 

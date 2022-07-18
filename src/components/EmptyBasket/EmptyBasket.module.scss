@@ -9,7 +9,7 @@
     width: 100%;
     align-items: center;
     justify-content: center;
-    title {
+    .title {
       font-size: 32px;
     }
     img {
@@ -48,4 +48,25 @@
       background: $orange;
     }
   }
+}
+
+/* 576-768 */
+@media screen and (max-width: 768px) {
+  .box {
+    height: 100%;
+    .head {
+      .title {
+        font-size: 27px;
+      }
+    }
+    .text {
+      max-width: 90%;
+      font-size: 12px;
+    }
+    .image {
+      width: 250px;
+      height: inherit;
+    }
+  }
+
 }

@@ -41,8 +41,6 @@
     }
   }
 
-
-
   .clarifying {
     display: flex;
     align-items: center;
@@ -58,12 +56,126 @@
         margin: 3px 12px 0;
       }
     }
+    .wrapper {
+      display: flex;
+      width: min-content;
+      .price {
+        display: block;
+        width: min-content;
+        white-space: nowrap;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 30px;
+        margin-right: 20px;
+      }
+    }
+  }
+}
 
-    .price {
-      display: block;
-      font-weight: 700;
-      font-size: 22px;
-      line-height: 27px;
+/* 768-992 */
+@media screen and (max-width: 992px) {
+  .box {
+    .clarifying {
+      width: min-content;
+      flex-direction: column-reverse;
+      align-items: inherit;
+
+      .counter {
+        margin-top: 15px;
+      }
+      .wrapper {
+        .price {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+/* 576-768 */
+@media screen and (max-width: 768px) {
+  .box {
+    padding: 20px 0;
+    .info {
+      .image {
+        width: 70px;
+        height: 70px;
+      }
+
+      .infoTexts {
+        margin-left: 8px;
+
+        .title {
+          font-size: 16px;
+          line-height: 23px;
+        }
+        .settings {
+          font-size: 14px;
+          line-height: 22px;
+          color: #8D8D8D;
+          margin-top: 1px;
+        }
+      }
+    }
+
+    .clarifying {
+      .counter {
+        margin-top: 8px;
+        .count {
+          font-size: 18px;
+          line-height: 23px;
+        }
+      }
+      .wrapper {
+        .price {
+          font-size: 18px;
+          line-height: 30px;
+        }
+      }
+    }
+  }
+  .CircleButtonSmall {
+    width: 26px!important;
+    height: 26px!important;
+  }
+}
+
+/* 320-576 */
+@media screen and (max-width: 576px) {
+  .box {
+    flex-direction: column;
+    .info {
+      width: 100%;
+      .image {
+        margin-left: 9px;
+      }
+      .infoTexts {
+        .title {
+          font-size: 14px;
+          line-height: 12px;
+        }
+        .settings {
+          font-size: 12px;
+        }
+      }
+    }
+    .clarifying {
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      margin-top: 10px;
+      .counter {
+        margin-top: 0;
+        .count {
+          font-size: 16px;
+        }
+      }
+      .wrapper {
+        .price {
+          font-size: 16px;
+          line-height: 27px;
+        }
+      }
     }
   }
 }
